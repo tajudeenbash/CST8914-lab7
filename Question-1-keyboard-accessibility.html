@@ -25,7 +25,8 @@ a{
   color: #006b3a;
 }
 main a{
- 
+ /*The CSS declaration 'outline: none' will suppress the browser's focus outline. If you remove it then the default outline will appear which is useful for keyboard users to see which link they are focused on. */
+  text-decoration: underline;
 }
 h2 {
   margin-top: 0;
@@ -206,6 +207,7 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
+        <!-- I added tabindex="0" to the Business link so that it can receive focus. -->
         <a href="#" tabindex="0">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
@@ -222,6 +224,7 @@ article p {
       <img class="pull-right" src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/cat.jpg?raw=true" alt="A cat staring menacingly off into space">
       <div class="info">
         <h3 class="headline">Study shows 9 out of 10 cats quietly judging their owners as they sleep</h3>
+        <!--I removed that tabindex=”1” and the link will follow its position in the HTML. It will remain keyboard focusable as it has an href.-->
         <p>
           GRAND RAPIDS, MILorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
           aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
@@ -233,10 +236,14 @@ article p {
     <div class="side-by-side">
       <div class="column">
         <div class="tier-header">
+          <!--The heading's tabindex introduced an unwanted stop when you hit Tab, even though the heading itself is not interactive. Removing the tabindex allows keyboard users to navigate through the interactive controls without pausing at the heading.
+
+It's still an <h2> so screen reader users can still pick it up via heading navigation.-->
           <h2 >In the news</h2>
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
+          <!--I removed that tabindex=”1” and the link will follow its position in the HTML. It will remain keyboard focusable as it has an href.-->
           <p><a href="#" ><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
@@ -246,6 +253,7 @@ article p {
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/telephone.jpg?raw=true" alt="A red, London telephone booth" />
           <div class="info">
             <h3 class="headline">Telephone booths. How is this still a thing?</h3>
+            <!--I removed that tabindex=”1” and the link will follow its position in the HTML. It will remain keyboard focusable as it has an href.-->
             <p>
               LONDON-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
               irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
@@ -279,6 +287,7 @@ article p {
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
       <input type="text">
+      <!--I changed onfocus to onclick because it previously opened when I tabbed to the button. Now Tab reaches it, and it receives focus, while Enter or Space activates it.> -->
       <button type="button" onclick="openSignupPage()">Sign up</button>
       
         </div>
